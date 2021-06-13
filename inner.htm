@@ -1,0 +1,17 @@
+<h2>Inner frame</h2>
+<p>
+    <script>
+        self.addEventListener('fetch', event => {
+            console.log('inner', event);
+        });
+        let data = sessionStorage.getItem('key');
+        console.log(data);
+        if (data == null) {
+            data = 1;
+        } else {
+            data = parseInt(data) + 1;
+        }
+        document.write('Data ', data);
+        sessionStorage.setItem('key', data);
+    </script>
+</p>

@@ -1,0 +1,18 @@
+<h1>Outer frame</h1>
+    <script>
+        var work = new Worker("/zap/worker.js");
+    </script>
+        <script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+            navigator.serviceWorker.register('/zap/worker.js', {scope: '/zap/index.htm'}).then(function(registration) {
+                console.log('ServiceWorker registration succesful!')
+            }, function(err) {
+                console.log('ServiceWorker registration failed: ', err);
+            });
+        });
+    }
+    </script>
+    <a href="index.htm">Click</a>
+    <br/>
+<iframe src="inner.htm" allow="autoplay *;fullscreen *;encrypted-media *;camera 'self';microphone 'self'"></iframe>

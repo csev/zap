@@ -16,6 +16,8 @@ console.log(registration);
 
     </script>
 <hr>
+<img src="csev.jpg">
+<hr>
 <pre>
 <?php
 print_r(getallheaders());

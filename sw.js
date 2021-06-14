@@ -13,14 +13,16 @@ self.addEventListener('fetch', event => {
 function customHeaderRequestFetch(event) {
   // decide for yourself which values you provide to mode and credentials
   const newRequest = new Request(event.request, {
+    // https://developer.mozilla.org/en-US/docs/Web/API/Request/mode
     mode: 'cors',
-    credentials: 'omit',
+    // https://developer.mozilla.org/en-US/docs/Web/API/Request/credentials#syntax
+    credentials: 'same-origin',
     headers: {
       'x-my-custom-header': 'The Most Amazing Header Ever'
     }
   })
   console.log('Returning 2.');
-    newRequest.headers['X-Chuck'] = "42";
+    // newRequest.headers['X-Chuck'] = "42";
   console.log(newRequest);
   return fetch(newRequest)
 }
